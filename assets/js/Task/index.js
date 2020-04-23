@@ -107,9 +107,8 @@ function addTask() {
 function init() {
     $("#taskTabs").find('.border-todo-grey').trigger('click');
 }
-function completeTask(id) {
-    if(!isEmpty(parseInt(id))){
-        var url = './task/complete';
+function taskAction(url,id) {
+    if(!isEmpty(parseInt(id)) && !isEmpty(url)){
         TODO.ajaxSubmitDataCallback(url,{'id' : id},'json',function (response) {
             if(!isEmpty(response) && response.status == 'success'){
                 init();
@@ -127,22 +126,18 @@ function completeTask(id) {
         console.error('Nothing to complete');
     }
 }
+function completeTask(id) {
+    if(!isEmpty(parseInt(id))){
+        var url = './task/complete';
+        taskAction(url,id);
+    }else{
+        console.error('Nothing to complete');
+    }
+}
 function deleteTask(id) {
     if(!isEmpty(parseInt(id))){
         var url = './task/delete';
-        TODO.ajaxSubmitDataCallback(url,{'id' : id},'json',function (response) {
-            if(!isEmpty(response) && response.status == 'success'){
-                init();
-            }else{
-                if(!isEmpty(response.message)){
-                    console.error(response.message);
-                    toastr.error(response.message);
-                }else{
-                    console.error('Information not found.');
-                }
-
-            }
-        })
+        taskAction(url,id);
     }else{
         console.error('Nothing to complete');
     }
