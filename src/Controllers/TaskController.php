@@ -27,7 +27,6 @@ class TaskController extends CoreController {
         $list = $model_task->getTasks([],$where);
         $total = $model_task->countTasks([]);
         $total_pending = $model_task->countTasks(['status' => 0]);
-//        $this->loadView('Elements.pending_tasks',['tasks' => $array,'type' => '']);
         if($total === false){
             return $this->utilityObject->jsonResponse(['status' => 'error', 'message' => 'Please check your $database_credentials in src/Core/Config.php.Also check Database/alter_query.sql for any alter']);
         }

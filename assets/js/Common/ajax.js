@@ -40,7 +40,7 @@ var TODO = {
         this.ajax_stop();
         // console.log("Status: " + status + ".\n" + errorThrown);
         if (status == 403) {
-            toastr.warning("দুঃখিত! অনুপ্রবেশ সংরক্ষিত।");
+            toastr.warning("Sorry! not authorize");
             return;
         } else if (status == 404) {
             toastr.options = {
@@ -48,17 +48,16 @@ var TODO = {
                 "debug": false,
                 "positionClass": "toast-bottom-right",
             };
-            toastr.info("দুঃখিত! প্রয়োজনীয় তথ্য পাওয়া যায়নি।");
+            toastr.info("Sorry! required info not found");
             return;
         }
         else if(status == 500){
-            toastr.error("দুঃখিত! যান্ত্রিক ত্রুটি হয়েছে");
+            toastr.error("Sorry! Technical error occurred");
             return;
         }
         else {
-            //console.debug("Status: " + status + ".\n" + errorThrown);
+            console.debug("Status: " + status + ".\n" + errorThrown);
         }
-        // toastr.error("দুঃখিত! পুর্বের অনুরোধ সম্পুর্ন করা সম্ভব হচ্ছে না");
     },
 
     ajaxRequestModelAction: function (params) {
@@ -93,8 +92,8 @@ var TODO = {
             beforeSend: function (XMLHttpRequest) {
                 TODO.ajax_start();
             },
-            success: function (data, textStatus, jqXHR) {
-                $(placeholder).html(data);
+            success: function (response, textStatus, jqXHR) {
+                $(placeholder).html(response);
                 TODO.ajax_stop();
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -137,9 +136,9 @@ var TODO = {
             error: function (jqXHR, textStatus, errorThrown) {
                 TODO.ajax_error(jqXHR.status, errorThrown);
             },
-            success: function (data, textStatus) {
+            success: function (response, textStatus) {
                 TODO.ajax_stop();
-                TODO.loadContents(data);
+                TODO.loadContents(response);
             }
         });
     },
@@ -160,9 +159,9 @@ var TODO = {
             error: function (jqXHR, textStatus, errorThrown) {
                 TODO.ajax_error(jqXHR.status, errorThrown);
             },
-            success: function (data, textStatus) {
+            success: function (response, textStatus) {
                 TODO.ajax_stop();
-                callback(data);
+                callback(response);
             }
         });
     },
@@ -183,9 +182,9 @@ var TODO = {
             error: function (jqXHR, textStatus, errorThrown) {
                 TODO.ajax_error(jqXHR.status, errorThrown);
             },
-            success: function (data, textStatus) {
+            success: function (response, textStatus) {
                 TODO.ajax_stop();
-                callback(data);
+                callback(response);
             }
         });
     },
@@ -204,9 +203,9 @@ var TODO = {
             error: function (jqXHR, textStatus, errorThrown) {
                 TODO.ajax_error(jqXHR.status, errorThrown);
             },
-            success: function (data, textStatus) {
+            success: function (response, textStatus) {
                 TODO.ajax_stop();
-                callback(data);
+                callback(response);
             }
         });
     },
@@ -227,14 +226,14 @@ var TODO = {
                 callbackerror(errorThrown);
                 TODO.ajax_error(jqXHR.status, errorThrown);
             },
-            success: function (data, textStatus) {
+            success: function (response, textStatus) {
                 TODO.ajax_stop();
-                callback(data);
+                callback(response);
             }
         });
     },
     ajaxLogin: function (data) {
-        url = this.APP_URL_ROOT + 'ajaxlogin';
+        var url = this.APP_URL_ROOT + 'ajaxlogin';
         if (this.APP_XHR)
             this.APP_XHR.abort();
         this.APP_XHR = $.ajax({
@@ -246,9 +245,9 @@ var TODO = {
                 $('#login-loader').show();
                 $('#login-error').hide();
             },
-            success: function (data, textStatus, jqXHR) {
+            success: function (response, textStatus, jqXHR) {
                 $('#login-loader').hide();
-                var flg = JSON.parse(data);
+                var flg = JSON.parse(response);
                 if (flg.login) {
                     $('#loginModal').modal('hide');
                 } else {
@@ -269,7 +268,7 @@ var TODO = {
     },
     ajaxDeleteRecordCallback: function (action) {
         if (confirm('Are you sure you want to delete record from the database?')) {
-            url = this.APP_URL_ROOT + action;
+            var url = this.APP_URL_ROOT + action;
             if (this.APP_XHR)
                 this.APP_XHR.abort();
             this.APP_XHR = $.ajax({
@@ -300,8 +299,8 @@ var TODO = {
     },
     refreshDataTable: function (tableId, refreshUrl) {
         $.getJSON(refreshUrl, null, function (json) {
-            table = $(tableId).dataTable();
-            oSettings = table.fnSettings();
+            var table = $(tableId).dataTable();
+            var oSettings = table.fnSettings();
 
             table.fnClearTable(this);
 

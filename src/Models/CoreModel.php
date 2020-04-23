@@ -6,7 +6,7 @@ use Medoo\Medoo;
 use App\Core\Utility;
 
 class CoreModel extends Config{
-    public $connection = '';
+    public $connection = false;
     public $table = '';
     public $utilityObject;
 
@@ -67,7 +67,7 @@ class CoreModel extends Config{
      * @return true if it has active connection or vice versa
      */
     protected function hasConnection(){
-        return !empty($this->connection)?true:false;
+        return $this->connection;
     }
 
     /*
@@ -103,7 +103,6 @@ class CoreModel extends Config{
                 $response['message'] = 'Required info not given.Error code:1.';
                 goto rtn;
             }
-            // $result = mysqli_query($connection, $sql);
             if(empty($select)){
                 $select = '*';
             }
@@ -372,7 +371,6 @@ class CoreModel extends Config{
                 }
 
             }
-            // $result = $connection->select($select,$where);
 
             $response = [
                 'status' =>'success',
