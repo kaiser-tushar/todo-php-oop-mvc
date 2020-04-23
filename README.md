@@ -3,7 +3,7 @@
 TODO application lets you create your task list and maintain active, completed task List.
 
 ## Description
-This application can add task which will be by
+This application can add task which will be
 created with active status.
 ![Add Task](https://i.imgur.com/Rhsa4g8.png)
 
@@ -34,7 +34,7 @@ Javascript - need to enable javascript on browser
 ### Installing
  For cloning this project need to run
  ```
-git clone 
+git clone https://github.com/kaiser-tushar/todo-php-oop-mvc
 ```
 Go to project folder and run in cmd / terminal
 ```
@@ -42,11 +42,14 @@ composer install
 ```
 Create a database on your preferred database engine like MySQL.
 
-Go to Database folder alter_query.sql and run listed queries from that file on newly created database.
+Go to Database folder alter_query.sql and run listed queries from that file on newly created database.Or you can run below SQL
+```
+CREATE TABLE `task` ( `id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `status` TINYINT NOT NULL DEFAULT '0' , `created` DATETIME NOT NULL , `modified` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+```
 
 Open src/Core/Config.php and update **$databaseCredentials** for Database connection.
 ```
-private $database_credentials = [
+private $databaseCredentials = [
         'host' => 'Your Database Host',
         'username' => 'Database username',
         'password' => 'Database password',
@@ -56,12 +59,14 @@ private $database_credentials = [
 ```
 
 ### Deployment
-To run  this application on PHP server locally on your machine run
+To run  this application on PHP server locally in your machine run
 
 ```
 php -S localhost:8000
 ```
 Change the localhost port as needed
+
+Go to localhost:8000 or localhost:your_given_port_number
 
 ### Built With
 This application is build with PHP and Javascript. I use PHP OOP, MVC design, jQuery for Javascript, MySQL for database. I use [Meddo](https://medoo.in/) for ORM.
