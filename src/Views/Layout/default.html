@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/common.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    {% endblock %}
+    <script src="./assets/js/jQuery-2.2.0.min.js"></script>
+</head>
+<body class="bg-light">
+<div id="container" class="container">
+    {{ include('Elements/top_bar.html') }}
+    {% block content %}
+
+    {% endblock %}
+</div>
+<script src="./assets/js/Common/ajax.js"></script>
+<script src="./assets/js/Common/utility.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</body>
+
+
+</html>

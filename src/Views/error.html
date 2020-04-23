@@ -1,0 +1,30 @@
+{% extends "Layout/default.html" %}
+{% block title %}Task List{% endblock %}
+{% block head %}
+{{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">OOPS!</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Error</h6>
+                <p class="card-text">
+                    <div class="alert alert-danger" role="alert">
+                    {{message | raw }}
+                    </div>
+                </p>
+                <div class="text-center">
+                    <a href="./" class="btn btn-lg btn-primary"><i class="fa fa-home"></i> Home</a>
+                </div>
+            </div>
+        </div>
+<!--        <h1 class="r">OOPS!</h1>-->
+<!--        <h1 class="blockquote-footer">Error: </h1>-->
+<!--        <a href="./" class="btn btn-lg btn-primary"><i class="fa fa-home"></i> Home</a>-->
+
+
+</div>
+{% endblock %}

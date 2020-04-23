@@ -1,0 +1,81 @@
+.bg-todo-brand{
+    color: #f9c1b9!important;
+}
+.task-times-button{
+    color: #f9c1b9!important;
+}
+.task-item{
+    /*border-bottom:2px solid #f0f2f4!important;*/
+    border-top:2px solid #f0f2f4!important;
+}
+.todo-title-div{
+    max-width: 90%;
+    overflow: auto;
+}
+#task_tabs{
+    border-top: 1px solid #f0f2f4!important;
+}
+#taskList{
+    border-top: 2px solid #f0f2f4!important;
+    max-height: 300px;overflow: auto;
+}
+/*.task-item:first-child{*/
+/*    border-top:2px solid #f0f2f4!important;*/
+/*}*/
+.text-todo-grey{
+    color: #f0f2f4!important;
+}
+.text-todo-ash{
+    color: #f8f9fa!important;
+}
+#clear_completed_link{
+    text-decoration: none!important;
+}
+#clear_completed_link:hover{
+    text-decoration: underline!important;
+    cursor: pointer;
+}
+.border-todo-grey{
+    border:1px solid #f0f2f4!important;
+}
+.form-control:focus {
+    border-color: white!important;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1);
+}.form-control::placeholder {
+    color: #f0f2f4!important;
+    font-style: italic;
+}
+.edit_task_name:focus {
+    border: 2px solid #bbc0c4!important;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 8px rgba(255, 255, 255, 1);
+}
+.nav-item:hover{
+    border: 1px solid #f0f2f4!important;
+    cursor: pointer;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #f0f2f4;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #f0f2f4;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #f0f2f4;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #f0f2f4;
+}
+.border-bottom-task-list{
+    border-bottom:2px solid #f0f2f4!important;
+ }
+/*#todo-container{*/
+/*    box-shadow: white 0 10px 0 -5px,#f0f2f4 0 11px 0px -5px,white 0 22px 0 -10px,#f0f2f4 0 23px 0px -10px;*/
+/*    border-bottom:1px solid #f0f2f4!important;*/
+/*}*/
+#pending_task_count, #task_tabs, #clear_completed_link{
+    font-size: 10pt;
+}

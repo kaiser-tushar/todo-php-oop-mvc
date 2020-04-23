@@ -1,0 +1,51 @@
+{% extends "Layout/default.html" %}
+{% block title %}Task List{% endblock %}
+{% block head %}
+{{ parent() }}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="input-group col-8 bg-white" id="todo-container">
+            <div class="input-group-prepend  border-white" id="show_below_arrow_in_task_form">
+                <div class="input-group-text bg-white border-white text-todo-grey col-1">
+                    <i class="fa fa-2x fa-chevron-down"></i>
+                </div>
+            </div>
+            <input id="task_name" class="form-control form-control-lg border-white" type="text" placeholder="What needs to be done?">
+            <div class="col-12" id="taskList" style="display: none">
+
+            </div>
+            <div id="task_tabs" class="col-12 text-secondary" style="display: none">
+                <nav class="navbar navbar-expand">
+                    <div class="col-3 navbar-nav">
+                        <label id="pending_task_count" class="my-2 my-lg-0"></label>
+                    </div>
+                    <div class="col-6">
+                        <ul class="navbar-nav mr-auto justify-content-center" id="taskTabs">
+                            <li class="nav-item mr-2">
+                                <a class="nav-link border border-todo-grey" onclick="getTaskList($(this))">All </a>
+                            </li>
+                            <li class="nav-item mr-2">
+                                <a class="nav-link" onclick="getTaskList($(this),1)" >Active</a>
+                            </li>
+                            <li class="nav-item mr-2">
+                                <a class="nav-link" onclick="getTaskList($(this),2)">Completed</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 navbar-nav">
+                        <span id="clear_completed_link" class="my-2 my-lg-0">Clear completed</span>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script src="./assets/js/Task/index.js"></script>
+{% endblock %}
+
