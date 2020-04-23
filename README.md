@@ -36,7 +36,7 @@ Javascript - need to enable javascript on browser
  ```
 git clone https://github.com/kaiser-tushar/todo-php-oop-mvc
 ```
-Go to project folder and run in cmd / terminal
+Go to project folder (ex: cd todo-php-oop-mvc) and run in cmd / terminal
 ```
 composer install
 ```
@@ -44,7 +44,13 @@ Create a database on your preferred database engine like MySQL.
 
 Go to Database folder alter_query.sql and run listed queries from that file on newly created database.Or you can run below SQL
 ```
-CREATE TABLE `task` ( `id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `status` TINYINT NOT NULL DEFAULT '0' , `created` DATETIME NOT NULL , `modified` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `task` ( 
+`id` INT NOT NULL AUTO_INCREMENT , 
+`title` VARCHAR(255) NOT NULL , 
+`status` TINYINT NOT NULL DEFAULT '0' ,
+ `created` DATETIME NOT NULL , 
+`modified` DATETIME NOT NULL , PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
 ```
 
 Open src/Core/Config.php and update **$databaseCredentials** for Database connection.
@@ -57,6 +63,7 @@ private $databaseCredentials = [
         'database_type' => 'Database type like mysql',
     ];
 ```
+![DB connection](https://imgur.com/40IcQRN)
 
 ### Deployment
 To run  this application on PHP server locally in your machine run
