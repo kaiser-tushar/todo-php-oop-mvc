@@ -63,7 +63,7 @@ private $databaseCredentials = [
         'database_type' => 'Database type like mysql',
     ];
 ```
-![DB connection](https://imgur.com/40IcQRN)
+![DB connection](https://i.imgur.com/40IcQRN.png)
 
 ### Deployment
 To run  this application on PHP server locally in your machine run
